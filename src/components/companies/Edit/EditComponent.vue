@@ -52,6 +52,9 @@
       },
       methods: {
         //teste git
+
+
+        //asdasd
         altera(e) {
           e.preventDefault();
           axios.put('http://localhost:8000/api/companies/'+this.$route.params.companyId, {
