@@ -5,12 +5,18 @@ import ListCompanies from '@/pages/companies/List'
 import Single from '../pages/companies/Single'
 import NovaEmpresa from '@/components/companies/Novo/Novo'
 import EditComponent from '../components/companies/Edit/EditComponent'
+import Login from '../components/Login'
 
 Vue.use(Router)
 
 export default new Router({
   mode: 'history',
   routes: [
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
+    },
     {
       path: '/',
       name: 'Home',
