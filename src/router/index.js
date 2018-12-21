@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
 import Home from '@/components/master/Home'
 import ListCompanies from '@/pages/companies/List'
 import Single from '../pages/companies/Single'
@@ -9,13 +10,13 @@ import Login from '../components/Login'
 
 Vue.use(Router)
 
-export default new Router({
+const routes = new Router({
   mode: 'history',
   routes: [
     {
       path: '/login',
       name: 'Login',
-      component: Login
+      component: Login,
     },
     {
       path: '/',
@@ -45,5 +46,18 @@ export default new Router({
       name: 'editCompany',
       component: EditComponent,
     },
-  ]
+  ],
 })
+
+  routes.beforeResolve((to, from, next) => {
+    if(to.path) {
+      NProgress.start()
+    }
+    next()
+  })
+    routes.afterEach(() => {
+    NProgress.done()
+  })
+
+export default routes;
+

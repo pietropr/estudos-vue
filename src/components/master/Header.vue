@@ -1,5 +1,5 @@
 <template>
-    <header v-if="usuario">
+    <header v-if="(this.$store.state.logado)">
         <div class="container">
             <ul class="nav">
                 <li class="nav-item">
@@ -11,8 +11,8 @@
                 <li class="nav-item">
                     <router-link class="nav-link" to="#">Jobs</router-link>
                 </li>
-                <li v-if="usuario" class="nav-link">Bem vindo</li>
-                <li v-if="usuario" v-on:click="sair" class="nav-link">Sair</li>
+                <li v-if="this.usuario" class="nav-link">Bem vindo <span class="text-capitalize">{{this.$store.getters.getUsuario}}</span></li>
+                <li v-if="this.usuario" v-on:click="sair" class="nav-link">Sair</li>
             </ul>
         </div>
 
@@ -22,25 +22,22 @@
 
 <script>
 export default {
+
   name: 'Header',
   data() {
     return {
-      usuario: '',
+      usuario: this.$store.state.usuario,
+      logado: []
     }
   },
-  created() {
-    let usuario = sessionStorage.getItem('usuario');
-    if(usuario) {
-      this.usuario = JSON.parse(usuario);
-    }
-  },
-  mounted() {
-    // axios.post('http://localhost:8000/api/details', )
-  },
+
   methods: {
     sair() {
       sessionStorage.removeItem('usuario');
-      this.usuario = false;
+      this.$store.state.usuario = [];
+      this.$store.commit('reseta');
+      sessionStorage.clear();
+      localStorage.removeItem('app');
       this.$router.push('/login')
     }
   }

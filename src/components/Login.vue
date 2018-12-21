@@ -32,10 +32,21 @@
             })
               .then(res => {
                 if(res.data.success.token)  {
-                    console.log(res);
-                    console.log('Login realizado com sucesso!');
-                    sessionStorage.setItem('usuario', JSON.stringify(res.data.success));
-                    this.$router.push('/');
+                    var resposta = res.data.success.token;
+                    sessionStorage.setItem('token', JSON.stringify(res.data.success));
+                          // this.$store.commit('alteraLogin', resposta)
+                      axios({
+                        method: 'POST',
+                        url:  'http://localhost:8000/api/details',
+                        headers: {
+                          'Authorization': 'Bearer '+ resposta,
+                          'Content-Type': 'application/x-www-form-urlencoded'
+                        }
+                      }).then(res2 => {
+                         this.$store.commit('setUsuario', res2.data);
+                         this.$store.commit('alteraLogin');
+                         window.location.href = '/'
+                      })
                 }
                 else {
                   console.log('Erros de validação')

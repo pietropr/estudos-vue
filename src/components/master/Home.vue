@@ -1,7 +1,6 @@
 <template>
-  <div class="home">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
+  <div class="container container-vue">
+    <h1>{{this.$store.state.usuario}}</h1>
   </div>
 </template>
 
@@ -12,9 +11,11 @@
     components: {Header},
     data () {
       return {
-        msg: 'Welcome to Your Vue.js App'
+        msg: 'Bem vindo',
+        msg2: this.$store.state.usuario
+
       }
-    }
+    },
   }
 </script>
 
