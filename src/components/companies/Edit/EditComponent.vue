@@ -1,6 +1,6 @@
 <template>
     <div class="container container-vue">
-        <h4>Editar empresa {{this.empresa.company.nome}}</h4>
+        <h4>Editar empresa {{this.nome}}</h4>
 
             <form v-on:submit="altera" class="col-sm-12">
                 <div class="row">
@@ -34,6 +34,7 @@
       data() {
         return {
           empresa: [],
+          nomeEmpresa: null,
           //variaveis
           nome: '',
           email: '',
@@ -41,7 +42,7 @@
           senha: '',
         }
       },
-      mounted() {
+    beforeCreate() {
         axios.get('http://localhost:8000/api/companies/'+this.$route.params.companyId)
           .then(res => {
             this.empresa = res.data;

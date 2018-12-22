@@ -6,6 +6,7 @@ import ListCompanies from '@/pages/companies/List'
 import Single from '../pages/companies/Single'
 import NovaEmpresa from '@/components/companies/Novo/Novo'
 import EditComponent from '../components/companies/Edit/EditComponent'
+import ListJobsComponent from '../components/jobs/List'
 import Login from '../components/Login'
 
 Vue.use(Router)
@@ -45,6 +46,13 @@ const routes = new Router({
       path: '/companies/editar/:companyId',
       name: 'editCompany',
       component: EditComponent,
+    },
+
+    {
+
+      path: '/jobs/',
+      name: 'listJob',
+      component: ListJobsComponent,
     },
   ],
 })

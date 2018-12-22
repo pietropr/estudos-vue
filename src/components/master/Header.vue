@@ -9,7 +9,7 @@
                     <router-link class="nav-link" to="/companies">Companies</router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link class="nav-link" to="#">Jobs</router-link>
+                    <router-link class="nav-link" to="/jobs">Jobs</router-link>
                 </li>
                 <li v-if="this.usuario" class="nav-link">Bem vindo <span class="text-capitalize">{{this.$store.getters.getUsuario}}</span></li>
                 <li v-if="this.usuario" v-on:click="sair" class="nav-link">Sair</li>
