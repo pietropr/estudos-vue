@@ -51,7 +51,7 @@ const store = new Vuex.Store({
 new Vue({
   el: '#app',
   router,
-  components: { App },
+  components: {App},
   template: '<App/>',
   store
 

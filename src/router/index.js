@@ -50,7 +50,7 @@ const routes = new Router({
 
     {
 
-      path: '/jobs/',
+      path: '/jobs',
       name: 'listJob',
       component: ListJobsComponent,
     },
