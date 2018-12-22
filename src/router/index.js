@@ -7,6 +7,7 @@ import Single from '../pages/companies/Single'
 import NovaEmpresa from '@/components/companies/Novo/Novo'
 import EditComponent from '../components/companies/Edit/EditComponent'
 import ListJobsComponent from '../components/jobs/List'
+import CreateJob from '../components/jobs/Create'
 import Login from '../components/Login'
 
 Vue.use(Router)
@@ -52,6 +53,25 @@ const routes = new Router({
 
       path: '/jobs',
       name: 'listJob',
+      component: ListJobsComponent,
+    },
+
+    {
+
+      path: '/jobs/novo',
+      name: 'createJob',
+      component: CreateJob,
+    },
+    {
+
+      path: '/jobs/:jobId',
+      name: 'singleJob',
+      component: ListJobsComponent,
+    },
+    {
+
+      path: '/jobs/editar/:jobId',
+      name: 'editJob',
       component: ListJobsComponent,
     },
   ],

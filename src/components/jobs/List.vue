@@ -23,8 +23,8 @@
                     <td>{{job.local}}</td>
                     <td>{{job.company.nome}}</td>
                     <td>
-                        <router-link class="btn btn-sm btn-primary" :to="{name: 'singleCompany', params: {companyId: job.id}}">Ver mais</router-link>
-                        <router-link class="btn btn-sm btn-warning text-white" :to="{name: 'editCompany', params: {companyId: job.id}}">Editar</router-link>
+                        <router-link class="btn btn-sm btn-primary" :to="{name: 'singleJob', params: {jobId: job.id}}">Ver mais</router-link>
+                        <router-link class="btn btn-sm btn-warning text-white" :to="{name: 'editJob', params: {jobId: job.id}}">Editar</router-link>
                         <a class="btn btn-sm btn-danger text-white" v-on:click="excluir(job.id)">Excluir</a>
                     </td>
                 </tr>
