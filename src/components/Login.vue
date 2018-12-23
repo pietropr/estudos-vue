@@ -22,6 +22,10 @@
           }
         }
       },
+      beforeCreate() {
+        window.localStorage.clear();
+        window.sessionStorage.clear();
+      },
       methods: {
         login() {
             console.log('ok');

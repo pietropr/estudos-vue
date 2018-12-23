@@ -20,7 +20,7 @@
           dados: []
         }
       },
-      mounted () {
+      mounted() {
         axios.get("http://localhost:8000/api/companies")
           .then(res => (this.dados = res.data))
       }

@@ -17,7 +17,7 @@ Vue.config.productionTip = false
 
 const vuexPersist = new VuexPersist({
   key: 'app',
-  storage: localStorage
+  storage: window.localStorage
 })
 
 

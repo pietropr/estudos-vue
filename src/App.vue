@@ -2,10 +2,7 @@
   <div id="app">
     <Header />
     <transition name="fade">
-      <keep-alive>
         <router-view/>
-      </keep-alive>
-
     </transition>
 
   </div>
@@ -16,7 +13,7 @@ import Header from './components/master/Header'
 export default {
   name: 'App',
   components: {Header},
-  mounted() {
+  beforeCreate() {
     let login = sessionStorage.getItem('token');
     if(!login) {
       return this.$router.push('/login');

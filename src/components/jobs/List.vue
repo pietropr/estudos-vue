@@ -47,9 +47,11 @@
       },
       mounted() {
         axios.get('http://localhost:8000/api/jobs')
-          .then(res => {
-            (this.jobs = res.data);
-          })
+          .then(res => (this.jobs = res.data))
+      },
+      beforeRouteUpdate() {
+        axios.get('http://localhost:8000/api/jobs')
+          .then(res => (this.jobs = res.data))
       }
     }
 </script>

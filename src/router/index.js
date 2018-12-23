@@ -12,8 +12,7 @@ import Login from '../components/Login'
 
 Vue.use(Router)
 
-const routes = new Router({
-  mode: 'history',
+export default new Router({
   routes: [
     {
       path: '/login',
@@ -62,30 +61,6 @@ const routes = new Router({
       name: 'createJob',
       component: CreateJob,
     },
-    {
-
-      path: '/jobs/:jobId',
-      name: 'singleJob',
-      component: ListJobsComponent,
-    },
-    {
-
-      path: '/jobs/editar/:jobId',
-      name: 'editJob',
-      component: ListJobsComponent,
-    },
   ],
 })
-
-  routes.beforeResolve((to, from, next) => {
-    if(to.path) {
-      NProgress.start()
-    }
-    next()
-  })
-    routes.afterEach(() => {
-    NProgress.done()
-  })
-
-export default routes;
 
