@@ -22,7 +22,7 @@
           }
         }
       },
-      beforeCreate() {
+      mounted() {
         window.localStorage.clear();
         window.sessionStorage.clear();
       },
@@ -47,7 +47,10 @@
                           'Content-Type': 'application/x-www-form-urlencoded'
                         }
                       }).then(res2 => {
-                         this.$store.commit('setUsuario', res2.data);
+                         let info = []
+                         info.push(sessionStorage.getItem('token'));
+                         info.push(res2.data.name);
+                         this.$store.commit('setUsuario', info);
                          this.$store.commit('alteraLogin');
                          window.location.href = '/'
                       })

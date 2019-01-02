@@ -17,18 +17,18 @@ Vue.config.productionTip = false
 
 const vuexPersist = new VuexPersist({
   key: 'app',
-  storage: window.localStorage
+  storage: window.sessionStorage
 })
 
 
 const store = new Vuex.Store({
     state: {
-      usuario: false,
+      usuario: [],
       logado: false
     },
     getters: {
       getUsuario: state => {
-          return state.usuario.name;
+          return state.usuario[1];
       }
     },
     mutations: {
