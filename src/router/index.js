@@ -8,6 +8,8 @@ import NovaEmpresa from '@/components/companies/Novo/Novo'
 import EditComponent from '../components/companies/Edit/EditComponent'
 import ListJobsComponent from '../components/jobs/List'
 import CreateJob from '../components/jobs/Create'
+import SingleJob from '../components/jobs/SingleJob'
+import EditJob from '../components/jobs/Edit'
 import Login from '../components/Login'
 
 Vue.use(Router)
@@ -60,6 +62,18 @@ export default new Router({
       path: '/jobs/novo',
       name: 'createJob',
       component: CreateJob,
+    },
+    {
+
+      path: '/jobs/:jobId',
+      name: 'singleJob',
+      component: SingleJob,
+    },
+    {
+
+      path: '/jobs/editar/:jobId',
+      name: 'editJob',
+      component: EditJob,
     },
   ],
 })
